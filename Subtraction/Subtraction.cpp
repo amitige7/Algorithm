@@ -23,9 +23,11 @@ string Subtract(string str1, string str2)
 	int carry = 0;
 	for (int i = N - 1; i >= 0; i--)
 	{
-		int n1 = (str1[i] - '0') + 10 + carry;
+		int n1 = str1[i] - '0';
+		cout << n1;
+		n1 += 10 + carry;
 		int n2 = str2[i] - '0';
-
+	
 		int subtract = n1 - n2;
 		
 		if (subtract >= 10)
@@ -35,7 +37,7 @@ string Subtract(string str1, string str2)
 		}
 		else carry = -1;
 		result[i] = subtract + '0';
-		cout << (n1-10) << " - " << n2 << " = " << result[i] << endl;
+		cout << " - " << n2 << " = " << result << " " << "carry = " << carry << endl;
 	}
 	// 불필요한 '0' 제거 (예: "078" -> "78")
 	// TODO:
