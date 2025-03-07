@@ -4,20 +4,22 @@
 
 using namespace std;
 
-// Ç×»ó Å« ¼ö¿¡¼­ ÀÛÀº ¼ö¸¦ »©´Â °æ¿ì(°á°ú°¡ À½¼ö°¡ µÇÁö ¾Ê´Â °æ¿ì)¸¦ °¡Á¤
+// ìŠ¤ìŠ¤ë¡œ êµ¬í˜„í•´ë³¸ Subtract ì½”ë“œ
+
+// í•­ìƒ í° ìˆ˜ì—ì„œ ìž‘ì€ ìˆ˜ë¥¼ ë¹¼ëŠ” ê²½ìš°(ê²°ê³¼ê°€ ìŒìˆ˜ê°€ ë˜ì§€ ì•ŠëŠ” ê²½ìš°)ë¥¼ ê°€ì •
 string Subtract(string str1, string str2)
 {
-	// µÑÀÌ °°À» °æ¿ì ¹Ù·Î "0" ¹ÝÈ¯
+	// ë‘˜ì´ ê°™ì„ ê²½ìš° ë°”ë¡œ "0" ë°˜í™˜
 	if (str1 == str2)
-		return "0"; // '0'Àº char, "0"Àº string
+		return "0"; // '0'ì€ char, "0"ì€ string
 
 	int N = max(str1.size(), str2.size());
-	str1 = string(N - str1.size(), '0') + str1; // ¹®ÀÚ¿­³¢¸®ÀÇ ´õÇÏ±âµµ °¡´É
+	str1 = string(N - str1.size(), '0') + str1; // ë¬¸ìžì—´ë¼ë¦¬ì˜ ë”í•˜ê¸°ë„ ê°€ëŠ¥
 	str2 = string(N - str2.size(), '0') + str2;
 	// str2.insert(0, string(N - str2.size(), '0');
 	string result(N, '0');
 
-	// TODO: ´õÇÏ±â¿Í °ÅÀÇ ºñ½ÁÇÕ´Ï´Ù.
+	// TODO: ë”í•˜ê¸°ì™€ ê±°ì˜ ë¹„ìŠ·í•©ë‹ˆë‹¤.
 	int carry = 0;
 	for (int i = N - 1; i >= 0; i--)
 	{
@@ -35,7 +37,7 @@ string Subtract(string str1, string str2)
 		result[i] = subtract + '0';
 		cout << (n1-10) << " - " << n2 << " = " << result[i] << endl;
 	}
-	// ºÒÇÊ¿äÇÑ '0' Á¦°Å (¿¹: "078" -> "78")
+	// ë¶ˆí•„ìš”í•œ '0' ì œê±° (ì˜ˆ: "078" -> "78")
 	// TODO:
 	for (int i = 0; i < N - 1; i++)
 	{
@@ -48,7 +50,7 @@ string Subtract(string str1, string str2)
 
 int main()
 {
-	// Ç×»ó Å« ¼ö¿¡¼­ ÀÛÀº ¼ö¸¦ »©´Â °æ¿ì(°á°ú°¡ À½¼ö°¡ µÇÁö ¾Ê´Â °æ¿ì)¸¦ °¡Á¤
+	// í•­ìƒ í° ìˆ˜ì—ì„œ ìž‘ì€ ìˆ˜ë¥¼ ë¹¼ëŠ” ê²½ìš°(ê²°ê³¼ê°€ ìŒìˆ˜ê°€ ë˜ì§€ ì•ŠëŠ” ê²½ìš°)ë¥¼ ê°€ì •
 	vector<vector<string>> tests = {
 		{"34", "12", std::to_string(34 - 12)}
 		, {"123", "45", std::to_string(123 - 45)}
